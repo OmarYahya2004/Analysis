@@ -5,21 +5,38 @@ import java.util.ArrayList;
 //adding another push
 //adding a comment
 public class TestSolis {
+	
+	
+	public static void testCodePrints(String[] arr) {
+		System.out.println("--- GUC CSEN 703: Assignment 1 Test Runner ---\n");
+		for(int i = 1;i<=arr.length;i++) {
+			System.out.print("Code Number " + i + "\n");
+			testCode(arr[i-1]);
+		}
+	}
 
     public static void main(String[] args) {
-        System.out.println("--- GUC CSEN 703: Assignment 1 Test Runner ---\n");
-
-        // Test Case 1: The main example
-        testCode("4182113");
-
-        // Test Case 2: The edge case with zeros
-        testCode("2025");
-
-        // Test Case 3: Invalid trailing zero
-        testCode("80");
         
-        // Extra Test: Simple ABC
-        testCode("123");
+    	String[] codes = new String[] 
+        		{"4182113",
+				 "7213",
+				 "191512919",
+				 "411892119",
+				 "931182119",
+				 "851291519",
+				 "2025",
+				 "30",
+				 "308",
+				 "4300812",
+				 "4200812",
+				 "3008",
+				 "2008",
+				 "85121215231518124",
+				 "9113918151413114"
+        		};
+        
+        testCodePrints(codes);
+     
     }
 
     public static void testCode(String code) {
@@ -36,7 +53,7 @@ public class TestSolis {
         Integer resultDP = TheSolisCode.SolisDecodeDP(code);
         endTime = System.nanoTime();
         System.out.println("Output DP : " + resultDP + " (Time: " + (endTime - startTime) + " ns)");
-
+        
         // 3. Test Decoded Results
         ArrayList<String> results = TheSolisCode.SolisDecodedResults(code);
         System.out.println("Output Results: " + results);
